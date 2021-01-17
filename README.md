@@ -1,9 +1,7 @@
 ## Spring Boot Hello World Project
 This project is basic Spring Boot Application only response String "Hello World" to get request, 
-although I try to make efficient deploy process. 
+also I try to make efficient deploy process. 
  
- 
-Alive version: [https://helloworld.demirtas.biz](https://helloworld.demirtas.biz)
    
 contact: [demirtaserdem@gmail.com](mailto:demirtaserdem@gmail.com)
 
@@ -35,7 +33,7 @@ sudo apt-get install openjdk-11-jdk
 Install the jar file some directory like this
 
 ```
-/home/{username}/helloworld.demirtas.biz/{hw-0.0.1-SNAPSHOT.jar}
+/home/{username}/helloworld.erdemdemirtas.com.tr/{hw-0.0.1-SNAPSHOT.jar}
 ```
 
 ##### 4. Give Permisson
@@ -51,18 +49,18 @@ chmod 500 hw-0.0.1-SNAPSHOT.jar
 Create a file /etc/systemd/system/{{yourapp}.service} like this
 
 ```
-/etc/systemd/system/helloworld.demirtas.biz.service
+/etc/systemd/system/helloworld.erdemdemirtas.com.tr.service
 ```
 Service file content
 
 ```
 [Unit]
-Description=helloworld.demirtas.biz
+Description=helloworld.erdemdemirtas.com.tr
 After=syslog.target
 
 [Service]
 User=demir
-ExecStart=/home/demir/helloworld.demirtas.biz/hw-0.0.1-SNAPSHOT.jar
+ExecStart=/home/demir/helloworld.erdemdemirtas.com.tr/hw-0.0.1-SNAPSHOT.jar
 SuccessExitStatus=143
 Restart=always
 RestartSec=30
@@ -74,8 +72,8 @@ WantedBy=multi-user.target
 ##### 6. Enable and Run Linux Service
 
 ```
-sudo systemctl enable helloworld.demirtas.biz.service
-sudo systemctl start helloworld.demirtas.biz
+sudo systemctl enable helloworld.erdemdemirtas.com.tr.service
+sudo systemctl start helloworld.erdemdemirtas.com.tr
 ```
 
 ##### 7. Install Nginx
@@ -99,7 +97,7 @@ sudo ufw status
 Create a file "/etc/nginx/sites-available/{yourapp}" like this
 
 ```
-sudo vim /etc/nginx/sites-available/helloworld.demirtas.biz
+sudo vim /etc/nginx/sites-available/helloworld.erdemdemirtas.com.tr
 ```
 
 File content
@@ -109,7 +107,7 @@ server {
         listen 80;
         listen [::]:80;
 
-        server_name helloworld.demirtas.biz;
+        server_name helloworld.erdemdemirtas.com.tr;
 
         location / {
              proxy_pass http://localhost:8000/;
@@ -130,7 +128,7 @@ sudo nginx -t
 Slink sites-enabled
 
 ```
-sudo ln -s /etc/nginx/sites-available/helloworld.demirtas.biz /etc/nginx/sites-enabled/helloworld.demirtas.biz
+sudo ln -s /etc/nginx/sites-available/helloworld.erdemdemirtas.com.tr /etc/nginx/sites-enabled/helloworld.erdemdemirtas.com.tr
 ```
 Restart Nginx
 
@@ -158,7 +156,7 @@ sudo certbot --nginx -d {domainName} -d {www.domainName}
 I use this command for single domain
  
 ```
-sudo certbot --nginx -d helloworld.demirtas.biz 
+sudo certbot --nginx -d helloworld.erdemdemirtas.com.tr 
 ```
 Note:
 	Select in options, http to https redirect option. 
